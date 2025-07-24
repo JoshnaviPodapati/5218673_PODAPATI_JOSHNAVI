@@ -1,0 +1,14 @@
+This Text file contains the git commands
+
+git clone remote repository link
+
+git add .
+
+git status
+
+git commit -m "commit message"
+
+git log
+
+git push 
+
