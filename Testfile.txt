@@ -1,14 +1,27 @@
 This Text file contains the git commands
 
 git clone remote repository link
+------------------------------------------
+git init
+
+git pull
+
+git diff 
 
 git add .
 
 git status
 
-git commit -m "commit message"
+git stash/git commit -m "commit message" ---> git stash is only executed before commiting the msg 
 
 git log
 
 git push 
+
+git branch <branchName>
+
+git checkout <branchName>
+
+git diff branch1 barnch2
+
 
