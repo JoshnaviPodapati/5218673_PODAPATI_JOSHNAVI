@@ -1,0 +1,7 @@
+SDLC MODELS:
+Waterfall model
+v model
+incremental model
+iterative model
+agile model
+spiral model
