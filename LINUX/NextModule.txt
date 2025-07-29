@@ -1,2 +1,6 @@
-Next module topics may be linux commands
-
+LINUX COMMANDS ARE VERY IMPORTANT TO LEARN :
+Date commands
+Calendar commands
+basic calculator commands
+conditional and unconditional commands
+echo commands etc...
