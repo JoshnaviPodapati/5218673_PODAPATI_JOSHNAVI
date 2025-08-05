@@ -10,30 +10,47 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int value=sc.nextInt();
-        int arr1[]=new int[value];
-        for(int index=0;index<value;index++){
-            arr1[index]=sc.nextInt();
-        }
-        int countPositive = 0;
-        int countNegative=0;
-        int countZero=0;
-        for (int index=0;index<value;index++) {
-            if (arr1[index] > 0) {
-                countPositive++;
+class Result {
+
+    /*
+     * Complete the 'plusMinus' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void plusMinus(List<Integer> arr) {
+        // This is the code i have written in my own logic
+         int countPositiveValues=0,countNegativeValues=0,countZeroValues=0;
+         int n=arr.size();
+         for(int numbers:arr){
+            if(numbers>0){
+                countPositiveValues++;
             }
-            else if (arr1[index]<0){
-                countNegative++;
+            else if(numbers<0){
+                countNegativeValues++;
             }
-            else {
-                countZero++;
+            else{
+                countZeroValues++;
             }
-        }
-        System.out.println(String.format("%.6f", (double)countPositive / value));
-        System.out.println(String.format("%.6f", (double)countNegative / value));
-        System.out.println(String.format("%.6f", (double)countZero / value));
+         }
+           System.out.printf("%.6f\n",(double)countPositiveValues/n);
+           System.out.printf("%.6f\n",(double)countNegativeValues/n);
+           System.out.printf("%.6f\n",(double)countZeroValues/n);     
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        Result.plusMinus(arr);
+
+        bufferedReader.close();
     }
 }
