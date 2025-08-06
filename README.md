@@ -6,4 +6,4 @@
 
 ![image alt](https://github.com/JoshnaviPodapati/5218673_PODAPATI_JOSHNAVI/blob/main/ESSENTIALS%20OF%20C/introduction%20to%20c%20.jpg?raw=true)
 
-![image alt](https://github.com/JoshnaviPodapati/5218673_PODAPATI_JOSHNAVI/blob/main/ESSENTIALS%20OF%20C/Intermediate%20to%20c.jpg?raw=true)
+![image alt](https://github.com/JoshnaviPodapati/5218673_PODAPATI_JOSHNAVI/blob/main/ESSENTIALS%20OF%20C/Intermediate%20c.jpg?raw=true)
