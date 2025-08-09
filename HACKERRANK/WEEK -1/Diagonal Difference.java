@@ -10,22 +10,54 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class result{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int total = sc.nextInt();
-        int a[][] = new int[total][total];
-        for (int i = 0; i < total; i++) {
-            for (int j = 0; j < total; j++) {
-                a[i][j] = sc.nextInt();
-            }
+class Result {
+
+    /*
+     * Complete the 'diagonalDifference' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int diagonalDifference(List<List<Integer>> arr) {
+       int n = arr.size();
+       int sumPrimary = 0,sumSecondary = 0;
+       for (int i = 0; i < n; i++) {
+            sumPrimary += arr.get(i).get(i);
+            sumSecondary += arr.get(i).get(n - i - 1);
         }
-        int primaryDiagonalSum=0,secondaryDiagonalSum=0;
-        for(int i=0;i<total;i++){
-                primaryDiagonalSum += a[i][i];
-                secondaryDiagonalSum += a[i][total - 1 - i];
+
+        return Math.abs(sumPrimary - sumSecondary);
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<List<Integer>> arr = new ArrayList<>();
+
+        IntStream.range(0, n).forEach(i -> {
+            try {
+                arr.add(
+                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        .map(Integer::parseInt)
+                        .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
-        int absoluteDifference=primaryDiagonalSum-secondaryDiagonalSum;
-        System.out.println(Math.abs(absoluteDifference));
+        });
+
+        int result = Result.diagonalDifference(arr);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
     }
 }
