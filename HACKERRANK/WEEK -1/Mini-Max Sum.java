@@ -10,29 +10,45 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Result {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int arr[] = new int[5];   // here 5 is the fixed size given in problem statement itself
-        for (int p = 0; p < 5; p++) {
-            arr[p] = sc.nextInt();
-        }
-        long totalSum = 0;
-        for (int p = 0; p < 5; p++) {
-            totalSum += arr[p];
-        }
-        int minVal=arr[0],maxVal=arr[0];
-        for(int p=1;p<5;p++){
-            if (arr[p]<minVal){
-                minVal=arr[p];
+class Result {
+
+    /*
+     * Complete the 'miniMaxSum' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+    public static void miniMaxSum(List<Integer> arr) {
+        long total = 0;
+        int smallest = arr.get(0);
+        int largest = arr.get(0);
+        for (int num : arr) {
+            total += num;
+            if (num < smallest) {
+                smallest = num;
             }
-            if(arr[p]>maxVal){
-                maxVal=arr[p];
+            if (num > largest) {
+                largest = num;
             }
         }
-        long minimumSum=totalSum-maxVal;
-        long maximumSum=totalSum-minVal;
-        System.out.println(minimumSum+" "+maximumSum);
+
+        long minSum = total - largest;
+        long maxSum = total - smallest;
+
+        System.out.println(minSum + " " + maxSum);
     }
 }
 
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        Result.miniMaxSum(arr);
+
+        bufferedReader.close();
+    }
+}
