@@ -10,17 +10,41 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Result {
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int queries = sc.nextInt();
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < queries; i++) {
-            long inputs = sc.nextLong();
-            long flippedBits = ~inputs & 0xFFFFFFFFL;
-            result.append(flippedBits).append("\n");
-        }
-        System.out.println(result.toString());
+class Result {
+
+    /*
+     * Complete the 'flippingBits' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER n as parameter.
+     */
+
+    public static long flippingBits(long n) {
+        return ~n & 0xFFFFFFFFL;
     }
 }
-    
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int q = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, q).forEach(qItr -> {
+            try {
+                long n = Long.parseLong(bufferedReader.readLine().trim());
+
+                long result = Result.flippingBits(n);
+
+                bufferedWriter.write(String.valueOf(result));
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}

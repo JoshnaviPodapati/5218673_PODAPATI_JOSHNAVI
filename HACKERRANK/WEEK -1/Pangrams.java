@@ -10,20 +10,41 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Result{
-     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine().toLowerCase();
-        Set<Character> values = new HashSet<>();
-        for (char c : s.toCharArray()) {
-            if (c >= 'a' && c<= 'z') {
-                values.add(c);
+class Result {
+
+    /*
+     * Complete the 'pangrams' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String pangrams(String s) {
+     s = s.toLowerCase();
+        Set<Character> letters = new HashSet<>();
+        for (char ch : s.toCharArray()) {
+            if (ch >= 'a' && ch <= 'z') {
+                letters.add(ch);
             }
         }
-        if (values.size() == 26) {
-            System.out.println("pangram");
-        } else {
-            System.out.println("not pangram");
-        }
+        return (letters.size() == 26) ? "pangram" : "not pangram";
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = bufferedReader.readLine();
+
+        String result = Result.pangrams(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
     }
 }
