@@ -1,0 +1,6 @@
+Unity is the framework which is mainly used to write the unit test cases for the c programming language.
+unity requires mainly 3 file inorder to execute the test cases:
+  1) unity.o
+  2) unity.h
+  3) unity_internals.h
+
