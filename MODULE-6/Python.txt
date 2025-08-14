@@ -1,0 +1,2 @@
+This file contains the information regarding python:
+python is the general purpose programming language which is intrepreted language.
