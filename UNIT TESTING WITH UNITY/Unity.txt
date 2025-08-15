@@ -4,3 +4,14 @@ unity requires mainly 3 file inorder to execute the test cases:
   2) unity.h
   3) unity_internals.h
 
+Here is the process for installing unity framework :
+1) we can use ubantu or wsl in vs code by typing
+sudo apt update
+sudo apt install git
+git clone unityframework repository link
+link: https://github.com/ThrowTheSwitch/Unity.git
+Note:Include unity framework source code i.e unity.c,unity.h,unity_internals.h
+
+
+
+
